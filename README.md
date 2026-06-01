@@ -38,7 +38,7 @@ pip install algoliasearch pandas
 Set your admin key (never commit this) and run the configuration script:
 
 ```bash
-export ALGOLIA_APP_ID=13QP82NDZ9
+export ALGOLIA_APP_ID='YOUR_APP_ID'
 export ALGOLIA_ADMIN_KEY=<your_admin_key>
 export ALGOLIA_INDEX=restaurants
 
