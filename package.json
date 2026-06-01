@@ -2,6 +2,7 @@
   "name": "alacarte-search",
   "type": "module",
   "scripts": {
+    "setup": "node scripts/generate-config.js",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
