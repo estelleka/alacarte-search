@@ -120,7 +120,7 @@ The app sends four event types to Algolia Insights, enabling the full Search →
 
 **Verify in the Events Debugger:**
 ```
-https://dashboard.algolia.com/apps/13QP82NDZ9/events-debugger
+https://dashboard.algolia.com/apps/'YOUR_APP_ID'/events-debugger
 ```
 
 Events appear in real time. Conversion rate and CTR metrics are available under **Observe → Analytics** after 24h of data.
