@@ -103,18 +103,6 @@ npx serve .
 | **Insights — conversion tracking** | `aa('convertedObjectIDsAfterSearch')` on "Reserve a table" |
 | **Insights — filter tracking** | `aa('clickedFilters')` on cuisine, price, payment selection |
 
----
-
-## Why JS Helper (not InstantSearch.js)?
-
-InstantSearch.js is the right tool for most UI-driven search projects. I chose the JS Helper deliberately here to show lower-level control:
-
-- **Custom rendering pipeline** — `cardHTML()` builds every card from scratch, giving full control over layout, animation delays, and highlight injection.
-- **State management** — `activeChips` is a plain object that's the single source of truth for all active filters. The DOM is always re-derived from it via `syncChipDOM()`, eliminating state/DOM drift bugs.
-- **Parallel helper instances** — `mapHelper` and the fallback helpers (`fh1`, `fh2`) run independent queries without interfering with the main search state. This isn't easy to do with InstantSearch widgets.
-- **Browse API access** — `browseObjects()` on the raw client (not a Helper) retrieves the full 5000-record dataset for the map cache, bypassing the 1000-hit search limit.
-
-In a real product, I'd switch to InstantSearch.js for the standard filtering/sorting/pagination UI and keep the Helper only for the non-standard parts.
 
 ---
 
@@ -213,18 +201,6 @@ alacarte-search/
 ├── .env.example                 Required environment variable names
 └── package.json                 Dependencies (search-insights, vitest, playwright)
 ```
-
----
-
-## What I Would Add With More Time
-
-- **Server-side search proxy** — move the API key out of client-side code entirely; the search-only key is safe by design but a proxy enables rate-limiting and request logging.
-- **InstantSearch.js for standard UI** — replace the manual filter/pagination wiring with IS.js widgets, keeping the Helper only for the Browse API map cache and parallel fallback queries.
-- **Personalisation** — pass `userToken` to enable Algolia Personalisation; clicks and conversions are already tracked, so the funnel data is there.
-- **A/B testing with Algolia Experiments** — test custom ranking variants (e.g. `desc(stars_count)` vs `desc(reviews_count)` as primary signal) on a traffic split.
-- **Accessible autocomplete** — the current dropdown implements basic keyboard navigation but lacks a proper ARIA combobox pattern; a library like Downshift would handle edge cases correctly.
-- **Offline support / PWA** — the fallback images are already local; adding a service worker would make the shell load offline and cache recent search results.
-- **More E2E coverage** — the Playwright suite covers the main flows; typo tolerance detection and the Algolia Story panel metrics are only tested manually today.
 
 ---
 
