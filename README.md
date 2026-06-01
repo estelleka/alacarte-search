@@ -4,7 +4,7 @@ A restaurant reservation search experience built with **Algolia JS Helper**, dem
 
 Built as part of the Algolia Solutions Engineer technical assignment.
 
-**[Live demo →](https://estelleka.github.io/alacarte-search/)** *(deploy to GitHub Pages to activate)*
+**[Live demo →](https://estelleka.github.io/alacarte-search/)** *(deployed to GitHub Pages)*
 
 ---
 
