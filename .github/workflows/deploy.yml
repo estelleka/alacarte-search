@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate config.js
+        run: |
+          cat > config.js << 'EOF'
+          const CONFIG = {
+            ALGOLIA_APP_ID:  '${{ secrets.ALGOLIA_APP_ID }}',
+            ALGOLIA_API_KEY: '${{ secrets.ALGOLIA_API_KEY }}',
+            ALGOLIA_INDEX:   'restaurants',
+            ALGOLIA_SUGGESTIONS_INDEX: 'restaurants_query_suggestions',
+            MAP_DEFAULT_LAT: 40.7128,
+            MAP_DEFAULT_LNG: -74.0060,
+            MAP_DEFAULT_ZOOM: 12,
+          };
+          EOF
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
