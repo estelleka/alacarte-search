@@ -1,0 +1,153 @@
+CUSTOMER QUESTIONS — ANSWERED - Estelle Karsenti
+Algolia Solutions Engineer Assignment
+================================================================================
+
+
+QUESTION 1 — George (definitions + custom ranking)
+
+	Hello,
+	I'm new to search engines, and there are a lot of concepts I'm not educated on. 
+  To make my onboarding smoother, it'd help if you could provide me with some definitions of the following concepts:
+		• Records
+		• Indexing
+	I'm also struggling with understanding what types of metrics would be useful to include in the "Custom Ranking."
+Cheers, George
+--------------------------------------------------------------------------------
+
+Hi George,
+
+Happy to help with these concepts.
+
+Record: A record is a collection of attributes, where each attribute has a name
+and a value, essentially a key-value pair. You can think of it as a single row in a
+spreadsheet. For a restaurant, one record might contain its name, cuisine type,
+location, and rating. Each record should contain all the information users need
+to both find it and display it in your results.
+
+Indexing: An index is where the data used by Algolia is stored. It's the
+equivalent of a database table, but optimized for search operations. Indexing is
+the process of sending your data to Algolia's servers in a format optimized for
+fast retrieval.
+
+Custom Ranking and what metrics to use: 
+Custom ranking is used when multiple records are equally relevant to a query, and you need to decide which ones appear first. 
+Typical attributes include number of sales, views, likes, ratings, and release date. Any numeric or boolean
+attribute works. The key is to choose metrics that reflect real business value.
+For a restaurant platform, stars_count and reviews_count are solid choices.
+One thing to be careful about: self-reinforcing metrics. Using page views,
+for example, means items with more views rank higher, which generates more views,
+which increases their ranking further.
+
+I hope this helps. For more information, please reference:
+  • What is a record: https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data
+  • Custom Ranking: https://www.algolia.com/doc/guides/managing-results/must-do/custom-ranking
+  • Popularity metrics: https://support.algolia.com/hc/en-us/articles/4406159901329-How-can-I-order-my-search-results-by-their-popularity-or-other-similar-metrics
+
+Best,
+Estelle
+
+================================================================================
+
+
+QUESTION 2 — Matt (frustration with dashboard)
+
+Hello,
+Sorry to give you the kind of feedback that I know you do not want to hear, 
+but I really hate the new dashboard design. Clearing and deleting indexes 
+are now several clicks away. I am needing to use these features while iterating, 
+so this is inconvenient.
+Regards, Matt
+
+--------------------------------------------------------------------------------
+
+Hi Matt,
+
+Thank you for the honest feedback. I am always happy to hear any type of feedback 
+as it helps make our product better so please keep sharing them.
+
+I understand this creates friction in your workflow, especially when you are iterating 
+frequently. While I don't have visibility into when or if the dashboard navigation will 
+change, there are two faster alternatives you can use right now:
+
+Via the API:
+- To clear an index (remove all records without affecting settings, rules, or synonyms), 
+use clearObjects Algolia
+https://www.algolia.com/doc/libraries/sdk/methods/search/clear-objects
+- To delete an index entirely, including all its records, settings, and links to replicas, 
+use deleteIndex Algolia
+https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices/how-to/delete-indices
+
+Via the Algolia CLI:
+- algolia index clear and algolia index delete are available directly from the command line 
+one command, no dashboard navigation needed Algolia CLI
+https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices/how-to/delete-indices
+
+Note that deleting a replica index directly is not possible. You need to unlink it from its 
+primary index first. The CLI algolia indices delete command handles this automatically. 
+https://www.algolia.com/doc/guides/managing-results/refine-results/sorting/how-to/deleting-replicas
+
+I will flag your feedback to the right team. In the meantime let me know if there is anything 
+I can help you with.
+
+Best,
+Estelle
+
+================================================================================
+
+
+QUESTION 3 — Leo (integration effort)
+
+Hi,
+I'm looking to integrate Algolia in my website. Will this be a lot of development work for me? 
+What's the high level process look like?
+Regards, Leo
+--------------------------------------------------------------------------------
+
+Hi Leo,
+
+Great question, the honest answer is that it is less work than most people expect.
+
+You can get Algolia up and running in as little as 5 minutes. That being said, 
+the actual timeline depends on factors like how your data is organized and what 
+your search UI needs to do.
+
+At a high level the process looks like this:
+
+1. Create and populate your Algolia index
+You send your content (products, articles, etc.) to Algolia so it can be indexed 
+and made searchable. This can be done in several ways: via API, dashboard upload, 
+or through existing integrations/connectors depending on your stack. Your data is 
+sent to Algolia as JSON records.
+
+2. Configure search and relevance
+Define how search should behave by setting searchable attributes, filters, typo tolerance, 
+ranking, and any business-specific relevance rules.
+
+3. Connect the search UI to your website
+Add the search experience to your frontend using Algolia’s libraries (such as InstantSearch), 
+helper libraries, or API clients directly.
+
+4. Test and refine
+Review search results and fine-tune relevance settings to ensure users are seeing the most useful 
+results quickly.
+
+5. Keep data in sync
+Set up updates so changes on your website are reflected automatically in Algolia.
+
+Algolia handles the heavy lifting of indexing, ranking, and scaling, so your
+dev team focuses on the experience, not the infrastructure. This means faster time-to-value 
+compared to building search in-house, and a search experience that improves directly with your 
+business data.
+
+I hope this helps. For more information, please reference:
+  • How long does it take: https://support.algolia.com/hc/en-us/articles/4406981894033
+  • How Algolia works: algolia.com/doc/guides/getting-started/how-algolia-works/in-depth/implementation-process/
+
+I am also happy to walk you through what this would look like for your specific setup in a call.
+
+Best,
+Estelle
+
+
+
+================================================================================
