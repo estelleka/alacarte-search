@@ -180,7 +180,7 @@ data/restaurants_info.csv    ─┘
 
 ```bash
 npm test              # 21 unit tests (utils.js pure functions)
-npm run test:e2e      # Playwright E2E test suites
+npm run test:e2e      # 55 E2E tests across 9 spec files (Playwright)
 npm run test:all      # both
 ```
 
