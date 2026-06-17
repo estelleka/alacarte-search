@@ -1,4 +1,4 @@
-# alacarte — Restaurant Search Demo
+# OpenTable — Restaurant Search Demo
 
 A restaurant reservation search experience built with **Algolia JS Helper**, demonstrating real-time search, geo-ranking, faceted filtering, typo tolerance, and full analytics — without InstantSearch.js.
 
@@ -8,7 +8,7 @@ Built as part of the Algolia Solutions Engineer technical assignment.
 
 ---
 
-![alacarte search demo](src/images/Screenshot-alacarte-search.png)
+![OpenTable search demo](src/images/Screenshot-alacarte-search.png)
 
 ---
 
@@ -189,7 +189,7 @@ npm run test:all      # both
 ## File Structure
 
 ```
-alacarte-search/
+OpenTable-search/
 ├── data/
 │   ├── restaurants_list.json    Base records (5000 restaurants)
 │   └── restaurants_info.csv     Enrichment: food type, ratings, price
