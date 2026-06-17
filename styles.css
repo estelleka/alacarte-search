@@ -380,7 +380,7 @@ body {
    STATS BAR
    ───────────────────────────────────────────────────────────────────────────── */
 #algolia-stats {
-  background: var(--sky-light);
+  background: var(--terracotta-light);
   border-bottom: 0.5px solid var(--border);
   padding: 7px 64px;
   display: flex; align-items: center; gap: 24px;
