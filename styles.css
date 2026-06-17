@@ -4,17 +4,17 @@
 
 /* ── Variables ── */
 :root {
-  --terracotta: #C07A5A;
-  --terracotta-light: #F0E4DA;
-  --terracotta-dark: #9A5C3F;
-  --sky: #8BAFC4;
-  --sky-light: #D4E8E0;
-  --cream: #FDFAF6;
-  --brown: #3D2E22;
-  --sand: #EDE0D4;
-  --gray: #7A6A5E;
-  --border: #E8DED3;
-  --white: #FDF5EE;
+  --terracotta: #DA3743;
+  --terracotta-light: #FAE8EA;
+  --terracotta-dark: #BA2D38;
+  --sky: #E8E8E8;
+  --sky-light: #F7F7F7;
+  --cream: #F7F7F7;
+  --brown: #1A1A1A;
+  --sand: #E8E8E8;
+  --gray: #6B6B6B;
+  --border: #E8E8E8;
+  --white: #FFFFFF;
   --header-h1: 64px;
   --header-h2: 52px;
   --header-total: 116px; /* h1 + h2 */

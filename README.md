@@ -1,14 +1,14 @@
-# alacarte — Restaurant Search Demo
+# OpenTable — Restaurant Search Demo
 
 A restaurant reservation search experience built with **Algolia JS Helper**, demonstrating real-time search, geo-ranking, faceted filtering, typo tolerance, and full analytics — without InstantSearch.js.
 
 Built as part of the Algolia Solutions Engineer technical assignment.
 
-**[Live demo →](https://estelleka.github.io/alacarte-search/)** *(deploy to GitHub Pages to activate)*
+**[Live demo →](https://estelleka.github.io/alacarte-search/)** *(deployed to GitHub Pages)*
 
 ---
 
-![alacarte search demo](src/images/Screenshot-alacarte-search.png)
+![OpenTable search demo](src/images/Screenshot-alacarte-search.png)
 
 ---
 
@@ -47,7 +47,7 @@ npm run setup   # generates config.js locally
 Set your admin key (never commit this) and run the configuration script:
 
 ```bash
-export ALGOLIA_APP_ID=13QP82NDZ9
+export ALGOLIA_APP_ID='YOUR_APP_ID'
 export ALGOLIA_ADMIN_KEY=<your_admin_key>
 export ALGOLIA_INDEX=restaurants
 
@@ -129,7 +129,7 @@ The app sends four event types to Algolia Insights, enabling the full Search →
 
 **Verify in the Events Debugger:**
 ```
-https://dashboard.algolia.com/apps/13QP82NDZ9/events-debugger
+https://dashboard.algolia.com/apps/'YOUR_APP_ID'/events-debugger
 ```
 
 Events appear in real time. Conversion rate and CTR metrics are available under **Observe → Analytics** after 24h of data.
@@ -189,7 +189,7 @@ npm run test:all      # both
 ## File Structure
 
 ```
-alacarte-search/
+OpenTable-search/
 ├── data/
 │   ├── restaurants_list.json    Base records (5000 restaurants)
 │   └── restaurants_info.csv     Enrichment: food type, ratings, price
